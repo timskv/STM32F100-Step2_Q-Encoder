@@ -122,7 +122,7 @@ void USART1_IRQHandler(void)
             	GPIOC->ODR^=GPIO_Pin_8;
             	break;
             case '2':
-            	VirtualEncoderInc();
+            	//VirtualEncoderInc();
             	break;
             case '4':
             	//USART_SendData(USART1, Enc1_GetCount());

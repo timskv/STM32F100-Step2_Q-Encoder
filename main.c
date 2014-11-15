@@ -13,30 +13,16 @@
 #include <stm32f10x_dbgmcu.h>
 #include "UtilsOut.h"
 #include "usart_func.c"
-#include "enc_v1_func.c"
+#include "enc_v2_func.c"
 
-
-
-
-
-uint8_t pr;
 uint8_t dataBuffer[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
 NVIC_InitTypeDef  NVIC_InitStructure1; // interruptions
-
-
+GPIO_InitTypeDef GPIO_InitStructure;
 void Delay(volatile uint32_t nCount);
-
-
-
-
-
-
 
 volatile int main(void)
 {
-	uint8_t uart_rx_data;
-
 	// init for GPIO (LED)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2ENR_AFIOEN , ENABLE); //for irq
@@ -45,19 +31,39 @@ volatile int main(void)
 	GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_8 | GPIO_Pin_9 ;       // two LED (guess on what pin!!)
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
 
+	init_gpio();
+	init_timer();
+	USART1_Config();
+
+	while (1)
+	{
+	  if (capture_is_ready)
+	  {
+	    NVIC_DisableIRQ(TIM3_IRQn);
+	    capture_is_ready = 0;
+	    const Direction direction = captured_direction;
+	    NVIC_EnableIRQ(TIM3_IRQn);
+	    if(direction==FORWARD) vUtils_Debug("TIM3 Forward \n");
+	    else vUtils_Debug("TIM3 Backward \n");
+	    /* Обрабатываем direction ... */
+	  }
+	}
 
 
 
-    TIM2_Config();
-    TIM3_Config();
-    TIM4_Config();
-    USART1_Config();
-    while(1)
+while(0) {
+	 TIM2_Config();
+	 TIM3_Config();
+	 TIM4_Config();
+
+}
+
+ /*   while(0)
     {
     	Delay(8000000);
     	vUtils_DisplayMsg("Encoder #1 count: ", QE1);
     	vUtils_DisplayMsg("Encoder #2 count: ", QE2);
-    }
+    }*/
     while(0)
     {
         /*GPIO_WriteBit(GPIOC,GPIO_Pin_8,Bit_RESET);

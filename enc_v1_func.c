@@ -8,7 +8,7 @@
 
 NVIC_InitTypeDef NVIC_Int;
 TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
-GPIO_InitTypeDef GPIO_InitStructure, GPIO_InitStructure1;
+GPIO_InitTypeDef GPIO_InitStructure1;
 int16_t QE1 = 0, QE2 = 0;
 int16_t PreviousQE1 = 0, PreviousQE2 = 0;
 
