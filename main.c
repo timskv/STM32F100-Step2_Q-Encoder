@@ -37,16 +37,27 @@ volatile int main(void)
 
 	while (1)
 	{
-	  if (capture_is_ready)
+	  if (capture_is_ready_t3)
 	  {
 	    NVIC_DisableIRQ(TIM3_IRQn);
-	    capture_is_ready = 0;
-	    const Direction direction = captured_direction;
+	    capture_is_ready_t3 = 0;
+	    const Direction direction = captured_direction_t3;
 	    NVIC_EnableIRQ(TIM3_IRQn);
 	    if(direction==FORWARD) vUtils_Debug("TIM3 Forward \n");
 	    else vUtils_Debug("TIM3 Backward \n");
 	    /* Обрабатываем direction ... */
 	  }
+
+	  if (capture_is_ready_t2)
+	  	  {
+	  	    NVIC_DisableIRQ(TIM2_IRQn);
+	  	    capture_is_ready_t2 = 0;
+	  	    const Direction direction = captured_direction_t2;
+	  	    NVIC_EnableIRQ(TIM2_IRQn);
+	  	    if(direction==FORWARD) vUtils_Debug("TIM2 Forward \n");
+	  	    else vUtils_Debug("TIM2 Backward \n");
+	  	    /* Обрабатываем direction ... */
+	  	  }
 	}
 
 
