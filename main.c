@@ -18,6 +18,8 @@
 #define TIMER_WAIT_MS 1000 // раз во сколько вемени отсчитываем энкодеры.
 
 int16_t tmp,rx,tx_end;
+int16_t QE1 = 0;
+int16_t QE2 = 0;
 
 uint16_t Enc1_Interrupted = 0;
 uint32_t Enc1_TotalCount = 0;
@@ -32,7 +34,7 @@ void Delay(volatile uint32_t nCount);
 void send_to_uart(uint8_t data)
 {
 	//while(!(USART1->SR & USART_SR_TC)); //∆дем пока бит TC в регистре SR станет 1
-	while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+	while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
 	{
 	}
 	USART1->DR=data; //ќтсылаем байт через UART
@@ -70,8 +72,8 @@ void TIM4_Config(void)
 	TIM4->CR1 = TIM_CR1_CEN;
 	//NVIC_EnableIRQ(TIM4_IRQn);
     NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 
@@ -138,10 +140,27 @@ void TIM3_IRQHandler(void)
 void TIM4_IRQHandler(void)
 {
 	//vUtils_Debug("FF");
-	uint16_t cnt = TIM4->CNT;
-	TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
-	send_to_uart('S');
+	//uint16_t cnt = TIM4->CNT;
+	QE1+=TIM2->CNT;
+	QE2+=TIM3->CNT;
+	/*TIM2->CR1 =(TIM2->CR1) & ~(TIM_CR1_CEN);
+	TIM3->CR1 =(TIM3->CR1) & ~ (TIM_CR1_CEN);
+
+	TIM2->CR1 =TIM_CR1_CEN;
+	TIM3->CR1 = TIM_CR1_CEN;
+	*/
+	//send_to_uart('S');
 	//send_to_uart('G');
+	/*TIM2->ARR = 0;
+	TIM2->ARR= 1000;
+	TIM3->ARR = 0;
+	TIM3->ARR= 1000;*/
+	TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
+
+	//mcu_tim2_init();
+	//mcu_tim3_init();
+
+
 }
 
 void VirtualEncoderInc()
@@ -216,9 +235,9 @@ void USART1_Config(void)
 
 
     NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-   // NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-    //NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-   // NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 
     USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
@@ -239,8 +258,8 @@ void TIM2_Config(void)
 	GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_0 | GPIO_Pin_1 ;       // two LED (guess on what pin!!)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	NVIC_Int.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_Int.NVIC_IRQChannelSubPriority = 0;
+	NVIC_Int.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_Int.NVIC_IRQChannelSubPriority = 2;
 	NVIC_Int.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Int.NVIC_IRQChannel = TIM2_IRQn;
 	NVIC_Init(&NVIC_Int);
@@ -267,8 +286,8 @@ void TIM3_Config(void)
 	GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_6 | GPIO_Pin_7 ;       // two LED (guess on what pin!!)
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	NVIC_Int.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_Int.NVIC_IRQChannelSubPriority = 0;
+	NVIC_Int.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_Int.NVIC_IRQChannelSubPriority = 2;
 	NVIC_Int.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Int.NVIC_IRQChannel = TIM3_IRQn;
 	NVIC_Init(&NVIC_Int);
@@ -403,7 +422,9 @@ volatile int main(void)
     USART1_Config();
     while(1)
     {
-    	;
+    	Delay(8000000);
+    	vUtils_DisplayMsg("Encoder #1 count: ", QE1);
+    	vUtils_DisplayMsg("Encoder #2 count: ", QE2);
     }
     while(0)
     {
