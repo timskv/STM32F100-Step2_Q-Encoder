@@ -20,6 +20,7 @@ uint8_t dataBuffer[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A',
 NVIC_InitTypeDef  NVIC_InitStructure1; // interruptions
 GPIO_InitTypeDef GPIO_InitStructure;
 void Delay(volatile uint32_t nCount);
+uint16_t e_func(int16_t QEx, uint8_t TickWheel);
 
 volatile int main(void)
 {
@@ -34,8 +35,22 @@ volatile int main(void)
 	init_gpio();
 	init_timer();
 	USART1_Config();
+	TIM4_Config();
+	while(1)
+	{
+		Delay(8000000);
 
-	while (1)
+		vUtils_DebugNoZero("Encoder1: ");
+		vUtils_DisplayDec(QE1);
+		vUtils_DisplayMsg("Path1: ", DIAMETER_WHEEL_MM*e_func(QE1, Tick_For_Wheel)*pi/360);
+
+		vUtils_DebugNoZero("Encoder2: ");
+		vUtils_DisplayDec(QE2);
+		vUtils_DisplayMsg("Path2: ", DIAMETER_WHEEL_MM*e_func(QE2, Tick_For_Wheel)*pi/360);
+
+
+	}
+	while (0)
 	{
 	  if (capture_is_ready_t3)
 	  {
@@ -43,8 +58,9 @@ volatile int main(void)
 	    capture_is_ready_t3 = 0;
 	    const Direction direction = captured_direction_t3;
 	    NVIC_EnableIRQ(TIM3_IRQn);
-	    if(direction==FORWARD) vUtils_Debug("TIM3 Forward \n");
-	    else vUtils_Debug("TIM3 Backward \n");
+	    //if(direction==FORWARD) vUtils_Debug("TIM3 Forward \n");
+	    //else vUtils_Debug("TIM3 Backward \n");
+	    vUtils_DisplayMsg("Encoder1: ", QE1);
 	    /* Обрабатываем direction ... */
 	  }
 
@@ -54,10 +70,19 @@ volatile int main(void)
 	  	    capture_is_ready_t2 = 0;
 	  	    const Direction direction = captured_direction_t2;
 	  	    NVIC_EnableIRQ(TIM2_IRQn);
-	  	    if(direction==FORWARD) vUtils_Debug("TIM2 Forward \n");
-	  	    else vUtils_Debug("TIM2 Backward \n");
+	  	    //if(direction==FORWARD) vUtils_Debug("TIM2 Forward \n");
+	  	    //else vUtils_Debug("TIM2 Backward \n");
 	  	    /* Обрабатываем direction ... */
+	  	    vUtils_DisplayMsg("Encoder2: ", QE2);
 	  	  }
+	}
+	while(0)
+	{
+		if(capture_is_ready_t3||capture_is_ready_t2)
+		{
+
+
+		}
 	}
 
 
@@ -122,4 +147,9 @@ while(0) {
 void Delay(volatile uint32_t nCount)
 {
     for (; nCount > 0; nCount--);
+}
+
+uint16_t e_func(int16_t QEx, uint8_t TickWheel)
+{
+	return abs(QEx)*360/TickWheel;
 }
