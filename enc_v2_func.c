@@ -73,6 +73,9 @@ void init_timer(void)
   TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
   TIM_Cmd(TIM2, ENABLE);
 
+
+
+
   NVIC_EnableIRQ(TIM3_IRQn);
   NVIC_EnableIRQ(TIM2_IRQn);
 }
