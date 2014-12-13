@@ -24,18 +24,31 @@ void init_timer(void);
 
 void init_gpio(void)
 {
-  GPIO_InitTypeDef gpio_cfg;
-  GPIO_StructInit(&gpio_cfg);
-
+//  GPIO_InitTypeDef gpio_cfg;
+//  GPIO_StructInit(&gpio_cfg);
+  uint32_t test;
   /* Каналы 1 и 2 таймера TIM3 - на вход, подтянуть к питанию */
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
-  gpio_cfg.GPIO_Mode = GPIO_Mode_IPU;
-  gpio_cfg.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
-  GPIO_Init(GPIOA, &gpio_cfg);
+//  gpio_cfg.GPIO_Mode = GPIO_Mode_IPU;
+//  gpio_cfg.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
+  GPIOA->BSRR|= GPIO_BSRR_BS6|GPIO_BSRR_BS7; //not work without it
+  GPIOA->CRL |= GPIO_CRL_CNF6_1;
+  GPIOA->CRL |= GPIO_CRL_CNF7_1;
+  GPIOA->CRL &= ~GPIO_CRL_CNF6_0;
+  GPIOA->CRL &= ~GPIO_CRL_CNF7_0;
 
-  gpio_cfg.GPIO_Mode = GPIO_Mode_IPU;
-  gpio_cfg.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
-  GPIO_Init(GPIOA, &gpio_cfg);
+
+//  gpio_cfg.GPIO_Mode = GPIO_Mode_IPU;
+//  gpio_cfg.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+
+  GPIOA->BSRR|= GPIO_BSRR_BS0|GPIO_BSRR_BS1; //not work without it
+  GPIOA->CRL |= GPIO_CRL_CNF0_1;
+  GPIOA->CRL |= GPIO_CRL_CNF1_1;
+  GPIOA->CRL &= ~GPIO_CRL_CNF0_0;
+  GPIOA->CRL &= ~GPIO_CRL_CNF1_0;
+
+  //GPIO_Init(GPIOA, &gpio_cfg);
+  //PIN_CONFIGURATION(LED_GREEN);
 }
 
 void init_timer(void)

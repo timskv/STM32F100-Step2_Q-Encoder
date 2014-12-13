@@ -15,13 +15,18 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.coocox.welcome.ui.WelcomePage" name="" partName="welcome" title="welcome" tooltip="" workbook="DefaultEditorWorkbook">
-<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">
-<org.coocox.welcome.ui.WelcomePage/>
+<input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.welcome.ui.WelcomePage/>
 </input>
 </editor>
 <editor id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" partName="Repository" title="Repository" tooltip="Repository" workbook="DefaultEditorWorkbook">
@@ -29,17 +34,37 @@
 <subPage horizontalPosition="0" selectedItemId="0" subPageIndex="0" verticalPosition="0"/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/STM32F100-Step2_+Q-Encoder/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/STM32F100-Step2_+Q-Encoder/main.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/main.c" title="main.c" tooltip="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TestSTM32/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="383" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="25" selectionTopPixel="137"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" partName="stm32f10x_gpio.h" path="C:/CooCox/CoIDE/workspace/TestSTM32/stm_lib/inc/stm32f10x_gpio.h" title="stm32f10x_gpio.h" tooltip="C:/CooCox/CoIDE/workspace/TestSTM32/stm_lib/inc/stm32f10x_gpio.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" partName="stm32f10x_gpio.h" path="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/stm_lib/inc/stm32f10x_gpio.h" title="stm32f10x_gpio.h" tooltip="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/stm_lib/inc/stm32f10x_gpio.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TestSTM32/stm_lib/inc/stm32f10x_gpio.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="22" selectionOffset="19168" selectionTopPixel="5250"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UtilsOut.h" partName="UtilsOut.h" title="UtilsOut.h" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_+Q-Encoder\UtilsOut.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/CooCox/CoIDE/workspace/STM32F100-Step2_+Q-Encoder/UtilsOut.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="65" selectionOffset="5947" selectionTopPixel="2355"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart_func.c" partName="usart_func.c" title="usart_func.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\usart_func.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\usart_func.c" project="TestSTM32"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4030" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="enc_v1_func.c" partName="enc_v1_func.c" title="enc_v1_func.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v1_func.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v1_func.c" project="TestSTM32"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="6125" selectionTopPixel="1787"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="enc_v2_func.c" partName="enc_v2_func.c" title="enc_v2_func.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v2_func.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v2_func.c" project="TestSTM32"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1099" selectionTopPixel="315"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_tim.c" partName="stm32f10x_tim.c" path="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/stm_lib/src/stm32f10x_tim.c" title="stm32f10x_tim.c" tooltip="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/stm_lib/src/stm32f10x_tim.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TestSTM32/stm_lib/src/stm32f10x_tim.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="8217" selectionTopPixel="4365"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_zumo.c" partName="encoder_zumo.c" title="encoder_zumo.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\encoder_zumo.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/encoder_zumo.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="17" selectionOffset="1126" selectionTopPixel="180"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" partName="stm32f10x_gpio.c" path="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/stm_lib/src/stm32f10x_gpio.c" title="stm32f10x_gpio.c" tooltip="C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/stm_lib/src/stm32f10x_gpio.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TestSTM32/stm_lib/src/stm32f10x_gpio.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="5" selectionOffset="6948" selectionTopPixel="2895"/>
 </editor>
 </editors>
 <views>
@@ -47,19 +72,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/TestSTM32"/>
-<element path="/TestSTM32/cmsis"/>
-<element path="/TestSTM32/cmsis_boot"/>
-<element path="/TestSTM32/cmsis_boot/startup"/>
-<element path="/TestSTM32/CoX"/>
-<element path="/TestSTM32/CoX/CoX_Peripheral"/>
-<element path="/TestSTM32/CoX/CoX_Peripheral/inc"/>
-<element path="/TestSTM32/stdio"/>
-<element path="/TestSTM32/stm_lib"/>
-<element path="/TestSTM32/syscalls"/>
 </expanded>
-<selection>
-<element path="/TestSTM32/cmsis_boot/stm32f10x_conf.h"/>
-</selection>
 </viewState>
 </view>
 <view id="org.coocox.component.ui.ComponentView" partName="Components">
@@ -171,158 +184,161 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TestSTM32/main.c"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/C:/CooCox/CoIDE/workspace/STM32F100-Step2_+Q-Encoder/UtilsOut.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TestSTM32/stm_lib/inc/stm32f10x_usart.h"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v1_func.c" project="TestSTM32"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v2_func.c" project="TestSTM32"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\usart_func.c" project="TestSTM32"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/encoder_zumo.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/TestSTM32/stm_lib/src/stm32f10x_gpio.c"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1079" y="12"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="7282" y="0"/>
 </item>
-<item historyLabel="UtilsOut.h" index="1">
-<position info="not_deleted" x="5947" y="65"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="6525" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1079" y="12"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="301" y="74"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1259" y="0"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="1155" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2012" y="11"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="301" y="74"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4038" y="15"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="1126" y="29"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4172" y="0"/>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1513" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1079" y="12"/>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="301" y="72"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1134" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3316" y="15"/>
+<item historyLabel="enc_v2_func.c" index="2">
+<position/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="10294" y="17"/>
+<position info="not_deleted" x="410" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="699" y="0"/>
+</item>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="1126" y="17"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="699" y="0"/>
+</item>
+<item historyLabel="enc_v1_func.c" index="1">
+<position info="not_deleted" x="0" y="7174"/>
+</item>
+<item historyLabel="usart_func.c" index="3">
+<position info="not_deleted" x="4030" y="0"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11896" y="0"/>
+<position info="not_deleted" x="25" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1456" y="0"/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6818" y="13"/>
+</item>
+<item historyLabel="usart_func.c" index="3">
+<position info="not_deleted" x="4030" y="0"/>
+</item>
+<item historyLabel="enc_v1_func.c" index="1">
+<position info="not_deleted" x="0" y="7174"/>
+</item>
+<item historyLabel="usart_func.c" index="3">
+<position info="not_deleted" x="4030" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1456" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1196" y="0"/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6345" y="7"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1031" y="13"/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6647" y="5"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1031" y="13"/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6681" y="6"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6866" y="4"/>
+</item>
+<item historyLabel="usart_func.c" index="3">
+<position info="not_deleted" x="4030" y="0"/>
+</item>
+<item historyLabel="enc_v1_func.c" index="1">
+<position info="not_deleted" x="0" y="7174"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position/>
+</item>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="1126" y="17"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6635" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position/>
+</item>
+<item historyLabel="enc_v1_func.c" index="1">
+<position info="not_deleted" x="0" y="7174"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1141" y="0"/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6635" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1141" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1035" y="0"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="8026" y="0"/>
+</item>
+<item historyLabel="encoder_zumo.c" index="4">
+<position info="not_deleted" x="1126" y="17"/>
+</item>
+<item historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1082" y="10"/>
+</item>
+<item historyLabel="stm32f10x_gpio.c" index="5">
+<position info="not_deleted" x="6948" y="5"/>
 </item>
 <item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4038" y="15"/>
+<position info="not_deleted" x="25" y="0"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="7044" y="0"/>
+<item historyLabel="enc_v1_func.c" index="1">
+<position info="not_deleted" x="6125" y="10"/>
 </item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4658" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11869" y="0"/>
-</item>
-<item historyLabel="stm32f10x_usart.h" index="2">
-<position info="not_deleted" x="9328" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11869" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11883" y="6"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4038" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11766" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="6802" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3316" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="7077" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="7508" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2012" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="8108" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="8599" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="6644" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4038" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4204" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2012" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2485" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="6591" y="268"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="3001" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2012" y="11"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="2439" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4038" y="15"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4186" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="6921" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="10294" y="17"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="11462" y="6"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="10294" y="17"/>
-</item>
-<item active="true" historyLabel="main.c" index="0">
-<position info="not_deleted" x="4604" y="13"/>
+<item active="true" historyLabel="enc_v2_func.c" index="2">
+<position info="not_deleted" x="1082" y="10"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -331,42 +347,38 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.c" tooltip="TestSTM32/stm_lib/src/stm32f10x_gpio.c">
+<persistable path="/TestSTM32/stm_lib/src/stm32f10x_gpio.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_zumo.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\encoder_zumo.c">
+<persistable uri="file:/C:/CooCox/CoIDE/workspace/STM32F100-Step2_Q-Encoder/encoder_zumo.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_tim.c" tooltip="TestSTM32/stm_lib/src/stm32f10x_tim.c">
+<persistable path="/TestSTM32/stm_lib/src/stm32f10x_tim.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_conf.h" tooltip="TestSTM32/cmsis_boot/stm32f10x_conf.h">
+<persistable path="/TestSTM32/cmsis_boot/stm32f10x_conf.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm3.h" tooltip="TestSTM32/cmsis/core_cm3.h">
+<persistable path="/TestSTM32/cmsis/core_cm3.h"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UtilsOut.h" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\UtilsOut.h">
+<persistable path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\UtilsOut.h" project="TestSTM32"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="enc_v2_func.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v2_func.c">
+<persistable path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v2_func.c" project="TestSTM32"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="enc_v1_func.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v1_func.c">
+<persistable path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\enc_v1_func.c" project="TestSTM32"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart_func.c" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\usart_func.c">
+<persistable path="C:\CooCox\CoIDE\workspace\STM32F100-Step2_Q-Encoder\usart_func.c" project="TestSTM32"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_usart.h" tooltip="TestSTM32/stm_lib/inc/stm32f10x_usart.h">
 <persistable path="/TestSTM32/stm_lib/inc/stm32f10x_usart.h"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UtilsOut.h" tooltip="C:\CooCox\CoIDE\workspace\STM32F100-Step2_+Q-Encoder\UtilsOut.h">
 <persistable uri="file:/C:/CooCox/CoIDE/workspace/STM32F100-Step2_+Q-Encoder/UtilsOut.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="TestSTM32/stm_lib/inc/stm32f10x_gpio.h">
-<persistable path="/TestSTM32/stm_lib/inc/stm32f10x_gpio.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="TestSTM32/main.c">
-<persistable path="/TestSTM32/main.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="TestSTM32/main.c">
-<persistable path="/TestSTM32/main.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="30" subPageIndex="2" verticalPosition="0"/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="TestSTM32/main.c">
-<persistable path="/TestSTM32/main.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="TestSTM32/main.c">
-<persistable path="/TestSTM32/main.c"/>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage horizontalPosition="0" selectedItemId="30" subPageIndex="2" verticalPosition="0"/>
-</persistable>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_gpio.h" tooltip="TestSTM32/stm_lib/inc/stm32f10x_gpio.h">
 <persistable path="/TestSTM32/stm_lib/inc/stm32f10x_gpio.h"/>

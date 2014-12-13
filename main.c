@@ -14,6 +14,7 @@
 #include "UtilsOut.h"
 #include "usart_func.c"
 #include "enc_v2_func.c"
+//#include "encoder_zumo.c"
 
 uint8_t dataBuffer[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
@@ -47,6 +48,8 @@ volatile int main(void)
 		vUtils_DebugNoZero("Encoder2: ");
 		vUtils_DisplayDec(QE2);
 		vUtils_DisplayMsg("Path2: ", DIAMETER_WHEEL_MM*e_func(QE2, Tick_For_Wheel)*pi/360);
+		//TIM2->EGR = TIM_EGR_UG;
+		//TIM3->EGR = TIM_EGR_UG;
 
 
 	}
