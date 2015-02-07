@@ -7,6 +7,16 @@
 #define DIAMETER_WHEEL_MM 20 //диаметр колеса
 #define TICK_FOR_WHEEL 10 //щелчков на один оборот
 
+//begin new defines
+#define TIM_TICK_MS 500
+#define LEN_TO_LEN_PER_TICK 1
+uint16_t ENC1_TICK = 0;
+uint16_t ENC2_TICK = 0;
+//end new defines
+
+GPIO_InitTypeDef GPIO_InitStructure1;
+NVIC_InitTypeDef NVIC_Int;
+TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 typedef enum { FORWARD, BACKWARD } Direction;
 
 double pi = acos(-1.0);
@@ -28,7 +38,7 @@ void init_gpio(void)
 //  GPIO_StructInit(&gpio_cfg);
   uint32_t test;
   /* РљР°РЅР°Р»С‹ 1 Рё 2 С‚Р°Р№РјРµСЂР° TIM3 - РЅР° РІС…РѕРґ, РїРѕРґС‚СЏРЅСѓС‚СЊ Рє РїРёС‚Р°РЅРёСЋ */
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 //  gpio_cfg.GPIO_Mode = GPIO_Mode_IPU;
 //  gpio_cfg.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;
   GPIOA->BSRR|= GPIO_BSRR_BS6|GPIO_BSRR_BS7; //not work without it
@@ -53,31 +63,35 @@ void init_gpio(void)
 
 void init_timer(void)
 {
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-  /* Р Р°Р·СЂРµС€Р°РµРј СЃС‡С‘С‚ РІ РѕР±Рµ СЃС‚РѕСЂРѕРЅС‹, РїРµСЂРёРѕРґ СЃС‚Р°РІРёРј 4 */
-  TIM_TimeBaseInitTypeDef timer_base;
-  TIM_TimeBaseStructInit(&timer_base);
-  timer_base.TIM_Period = 4;
-  timer_base.TIM_CounterMode = TIM_CounterMode_Down | TIM_CounterMode_Up;
-  TIM_TimeBaseInit(TIM3, &timer_base);
-  TIM_TimeBaseInit(TIM2, &timer_base);
-
-  /* РЎС‡РёС‚Р°С‚СЊ Р±СѓРґРµРј РІСЃРµ РїРµСЂРµС…РѕРґС‹ Р»РѕРі. СѓСЂРѕРІРЅСЏ СЃ РѕР±РѕРёС… РєР°РЅР°Р»РѕРІ */
-  TIM_EncoderInterfaceConfig(TIM3, TIM_EncoderMode_TI12,
-      TIM_ICPolarity_BothEdge, TIM_ICPolarity_BothEdge);
-  TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
-  TIM_Cmd(TIM3, ENABLE);
-  TIM_EncoderInterfaceConfig(TIM2, TIM_EncoderMode_TI12,
-      TIM_ICPolarity_BothEdge, TIM_ICPolarity_BothEdge);
-  TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
-  TIM_Cmd(TIM2, ENABLE);
 
 
+  RCC->APB1ENR = RCC_APB1ENR_TIM2EN; //тактирование
+ // 	TIM2->CCMR1 = TIM_CCMR1_CC1S_0 | TIM_CCMR1_CC2S_0; //Настраиваем второй мультиплексор (для первого и второго входа):
+ // 	TIM2->CCER = TIM_CCER_CC1P | TIM_CCER_CC2P; //С детектора фронтов возьмем не инверсный, т.е. активный уровень высокий (для первого и второго входа):
+ // 	TIM2->SMCR = TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1; //Всё, можно разрешать работу счетчика:
+  	TIM2->ARR = 200;
+ // 	TIM2->CR1 = TIM_CR1_CEN;
+
+  	RCC->APB1ENR |=  RCC_APB1ENR_TIM3EN; //тактирование
+//		TIM3->CCMR1 = TIM_CCMR1_CC1S_0 | TIM_CCMR1_CC2S_0; //Настраиваем второй мультиплексор (для первого и второго входа):
+// 		TIM3->CCER = TIM_CCER_CC1P | TIM_CCER_CC2P; //С детектора фронтов возьмем не инверсный, т.е. активный уровень высокий (для первого и второго входа):
+ // 		TIM3->SMCR = TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1; //Всё, можно разрешать работу счетчика:
+  		TIM3->ARR = 200;
+ // 		TIM3->CR1 = TIM_CR1_CEN;
 
 
-  NVIC_EnableIRQ(TIM3_IRQn);
-  NVIC_EnableIRQ(TIM2_IRQn);
+//
+	RCC->APB2ENR = RCC_APB2ENR_AFIOEN;
+
+
+	TIM_EncoderInterfaceConfig(TIM2, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_Cmd(TIM2, ENABLE);
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+		TIM_EncoderInterfaceConfig(TIM3, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+		TIM_Cmd(TIM3, ENABLE);
+		TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
+		  NVIC_EnableIRQ(TIM3_IRQn);
+		  NVIC_EnableIRQ(TIM2_IRQn);
 }
 
 void TIM4_Config(void)
